@@ -8,12 +8,11 @@
 
 <h1>Movie List</h1>
 
-@*@if ((await AuthorizationService.AuthorizeAsync(User, "Administrator")).Succeeded)*@
 
     <p>
         <a asp-action="Create"><button type="button" class="btn btn-primary btn-lg">Add new movie</button> </a>
     </p>
-            
+           
 
     @{
         System.Diagnostics.Debug.Assert(Model != null, nameof(Model) + " != null");
