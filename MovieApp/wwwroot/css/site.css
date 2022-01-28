@@ -22,7 +22,9 @@ body {
     text-decoration: none;
 }
 
-
+footer {
+    background-color: rgba(33,33,32,1);
+}
 
 .movie-card {
     width: 60%;

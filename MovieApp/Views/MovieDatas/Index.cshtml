@@ -31,8 +31,8 @@
 				<p class="movie-desc">@Html.DisplayFor(modelItem => item.Description)</p>
 			</div>
                <div class=edit-buttons>
-                   <a asp-action="Edit"><button type="button" class="btn btn-secondary">Edit</button></a>
-                   <a asp-action="Delete"><button type="button" class="btn btn-danger">Delete</button></a>
+                   <a asp-action="Edit" asp-route-id="@item.MovieId"><button type="button" class="btn btn-secondary cardBTN">Edit</button></a> 
+                 <a asp-action="Delete" asp-route-id="@item.MovieId"><button type="button" class="btn btn-danger cardBTN">Delete</button></a> 
                 </div> 
 		</div>
 	</div>
