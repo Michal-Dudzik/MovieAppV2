@@ -44,11 +44,11 @@
             @Html.DisplayNameFor(model => model.ImageName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageName)
+            <img src="@("~/image/"+ Model.ImageName)" asp-append-version="true" width="250px" height="250px" alt=""/>
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.MovieId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.MovieId">Edit</a> |
+    <a asp-action="Index"><button type="button" class="btn btn-light">Back to list</button></a>
 </div>

@@ -11,6 +11,7 @@
     <h4>MovieData</h4>
     <hr />
     <dl class="row">
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.MovieName)
         </dt>
@@ -24,34 +25,21 @@
             @Html.DisplayFor(model => model.MovieDirector)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ReleaseDate)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Genre)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Genre)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageName)
+         <dd class="col-sm-10">
+            <img src="@("~/image/"+ Model.ImageName)" asp-append-version="true" width="400px" height="500px"/>
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="MovieId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index"><button type="button" class="btn btn-light">Back to list</button></a>
     </form>
 </div>
+
+
