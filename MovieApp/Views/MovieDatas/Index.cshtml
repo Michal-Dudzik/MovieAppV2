@@ -8,10 +8,13 @@
 
 <h1>Movie List</h1>
 
-
-    <p>
+ @if (User.IsInRole("Administrator"))
+{
+  <p>
         <a asp-action="Create"><button type="button" class="btn btn-primary btn-lg">Add new movie</button> </a>
-    </p>
+ </p>  
+}
+
            
 
     @{
@@ -30,13 +33,16 @@
 				</div>
 				<p class="movie-desc">@Html.DisplayFor(modelItem => item.Description)</p>
 			</div>
+             @if (User.IsInRole("Administrator"))
+{
                <div class=edit-buttons>
                    <a asp-action="Edit" asp-route-id="@item.MovieId"><button type="button" class="btn btn-secondary cardBTN">Edit</button></a> 
                  <a asp-action="Delete" asp-route-id="@item.MovieId"><button type="button" class="btn btn-danger cardBTN">Delete</button></a> 
                 </div> 
+}
 		</div>
 	</div>
 
-   
+
 }
 
