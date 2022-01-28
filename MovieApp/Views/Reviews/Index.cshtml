@@ -1,22 +1,22 @@
-﻿@model IEnumerable<MovieApp.Models.Reviews>
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<MovieApp.Models.Reviews>
+@inject SignInManager<IdentityUser> singInManager;
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Reviews created by users</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (singInManager.IsSignedIn(User))
+   {
+        <a asp-action="Create"><button type="button" class="btn btn-primary btn-lg">Add new review</button> </a>
+   }
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.OwnerID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MovieName)
+                
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ReviewDescription)
@@ -34,9 +34,6 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.OwnerID)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.MovieName)
             </td>
             <td>
@@ -49,9 +46,13 @@
                 @Html.DisplayFor(modelItem => item.ReviewDate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ReviewId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ReviewId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ReviewId">Delete</a>
+                @if (singInManager.IsSignedIn(User))
+                { 
+                 <a asp-action="Details" asp-route-id="@item.ReviewId"><button type="button" class="btn btn-info">See more</button></a>
+                 <a asp-action="Edit" asp-route-id="@item.ReviewId"><button type="button" class="btn btn-secondary cardBTN">Edit</button></a> 
+                 <a asp-action="Delete" asp-route-id="@item.ReviewId"><button type="button" class="btn btn-danger cardBTN">Delete</button></a> 
+                 }
+                
             </td>
         </tr>
 }
