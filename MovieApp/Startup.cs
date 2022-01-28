@@ -68,7 +68,7 @@ namespace MovieApp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=MovieDatas}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
