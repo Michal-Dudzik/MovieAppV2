@@ -34,15 +34,14 @@
 				<p class="movie-desc">@Html.DisplayFor(modelItem => item.Description)</p>
 			</div>
              @if (User.IsInRole("Administrator"))
-{
-               <div class=edit-buttons>
-                   <a asp-action="Edit" asp-route-id="@item.MovieId"><button type="button" class="btn btn-secondary cardBTN">Edit</button></a> 
-                 <a asp-action="Delete" asp-route-id="@item.MovieId"><button type="button" class="btn btn-danger cardBTN">Delete</button></a> 
-                </div> 
-}
+                {
+                   <div class=edit-buttons>
+                       <a asp-action="Edit" asp-route-id="@item.MovieId"><button type="button" class="btn btn-secondary cardBTN">Edit</button></a> 
+                     <a asp-action="Delete" asp-route-id="@item.MovieId"><button type="button" class="btn btn-danger cardBTN">Delete</button></a> 
+                    </div> 
+                }
 		</div>
 	</div>
-
 
 }
 
