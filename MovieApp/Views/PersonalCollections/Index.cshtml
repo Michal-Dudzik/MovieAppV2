@@ -4,19 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Your Movies</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create"><button type="button" class="btn btn-primary">Add movie</button></a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.OwnerID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SelectMovieName)
+                Movie
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Score)
@@ -31,9 +28,6 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.OwnerID)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.SelectMovieName)
             </td>
             <td>
@@ -43,11 +37,15 @@
                 @Html.DisplayFor(modelItem => item.WatchDate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CollectionId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CollectionId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CollectionId">Delete</a>
+               
+                <a asp-action="Edit" asp-route-id="@item.CollectionId"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                <a asp-action="Delete" asp-route-id="@item.CollectionId"><button type="button" class="btn btn-danger">Delete</button></a> 
+                
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+
+ 
