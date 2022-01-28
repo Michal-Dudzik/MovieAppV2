@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MovieApp.Models;
 
 namespace MovieApp.Data
 {
@@ -12,5 +13,8 @@ namespace MovieApp.Data
             : base(options)
         {
         }
+        public DbSet<MovieApp.Models.MovieData> MovieData { get; set; }
+        public DbSet<MovieApp.Models.Reviews> Reviews { get; set; }
+        public DbSet<MovieApp.Models.PersonalCollection> PersonalCollection { get; set; }
     }
 }

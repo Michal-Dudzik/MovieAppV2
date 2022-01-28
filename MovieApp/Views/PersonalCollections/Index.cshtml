@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MovieApp.Models.PersonalCollection>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SelectMovieName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WatchDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectMovieName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WatchDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CollectionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CollectionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CollectionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
